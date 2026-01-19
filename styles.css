@@ -1,6 +1,33 @@
+* {
+    user-select: none;
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-align: center;
+    background: #000;
+    color: #ddd;
+}
+
+#projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#projects div {
+    margin: 10px;
+    padding: 0 20px;
+    min-width: 20vw;
+    height: 10vw;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #777;
+}
+
+#projects div:hover {
+    transform: scale(1.05);
 }
