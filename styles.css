@@ -22,10 +22,17 @@ body {
     float: left;
     font-size: 48pt;
     margin: 20vh auto;
+    text-shadow: 4px 4px 4px #777;
 }
 
 #right {
     float: right;
+}
+
+#left:hover,
+#right:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 #projects div {
@@ -36,11 +43,11 @@ body {
     background: #000;
     border: 2px solid #ddd;
     border-radius: 10px;
+    box-shadow: 4px 4px 4px #777;
 }
 
 #projects div:first-child {
     margin: 2vh 40vw !important;
-    box-shadow:4px 4px 4px #777;
     z-index: 1
 }
 
