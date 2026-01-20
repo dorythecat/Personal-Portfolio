@@ -17,9 +17,19 @@ body {
     overflow: hidden;
 }
 
+#left,
+#right {
+    float: left;
+    font-size: 48pt;
+    margin: 20vh auto;
+}
+
+#right {
+    float: right;
+}
+
 #projects div {
     position: absolute;
-    margin: 4vh 40vw;
     padding: 0 20px;
     width: 20vw;
     height: 20vw;
