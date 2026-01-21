@@ -17,18 +17,6 @@ body {
     overflow: hidden;
 }
 
-#rightArrow {
-    float: right;
-    font-size: 48pt;
-    margin: 20vh auto;
-    text-shadow: 4px 4px 4px #777;
-}
-
-#rightArrow:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
 #projects div {
     position: absolute;
     padding: 0 20px;

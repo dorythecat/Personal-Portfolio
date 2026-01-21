@@ -1,8 +1,7 @@
-const rightArrow = document.getElementById("rightArrow");
 const projects = document.getElementById("projects").children;
 
 let projectIndex = 0;
-rightArrow.addEventListener("click", () => {
+function nextProjects() {
     projectIndex++;
     if (projectIndex > Math.floor(projects.length / 3)) projectIndex = 0;
     if (projectIndex > 0) {
@@ -15,5 +14,6 @@ rightArrow.addEventListener("click", () => {
             projects[projects.length - i - 1]?.classList.add("hidden");
             projects[i].classList.remove("hidden");
         }
-    }
-});
+    } setTimeout(nextProjects, 10000);
+}
+setTimeout(nextProjects, 10000);
