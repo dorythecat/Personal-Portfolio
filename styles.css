@@ -52,3 +52,7 @@ body {
     visibility: hidden;
     opacity: 0;
 }
+
+#projects div a {
+    color: #ddd;
+}
