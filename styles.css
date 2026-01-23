@@ -1,15 +1,14 @@
 * {
     user-select: none;
     box-sizing: border-box;
+    color: #ddd; !important
 }
 
 body {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-align: center;
     background: #000;
-    color: #ddd;
 }
 
 #projects {
@@ -51,8 +50,4 @@ body {
 #projects div.hidden {
     visibility: hidden;
     opacity: 0;
-}
-
-#projects div a {
-    color: #ddd;
 }
