@@ -5,13 +5,13 @@ const API_URL = "https://api.github.com/user/45130233"
 
 // Get basic user info
 const request = new XMLHttpRequest();
-request.onreadystatechange = function() {
+request.onreadystatechange = () => {
     if (request.readyState !== 4 || request.status !== 200) return;
     const response = JSON.parse(request.responseText);
 
     // Select repositories to showcase
     const repoRequest = new XMLHttpRequest();
-    repoRequest.onreadystatechange = function() {
+    repoRequest.onreadystatechange = () => {
         if (repoRequest.readyState !== 4 || repoRequest.status !== 200) return;
         const response = JSON.parse(repoRequest.responseText);
         let j = 0;
@@ -33,16 +33,15 @@ request.onreadystatechange = function() {
 request.open("GET", API_URL, true);
 request.send(null);
 
+const lengthMod = Math.floor(projects.length / 3);
 let projectIndex = 0;
 function nextProjects() {
     if (projects.length < 4) return;
-    projectIndex++;
-    const lengthMod = Math.floor(projects.length / 3);
-    if (projectIndex > lengthMod) projectIndex = 0;
+    if (projectIndex++ > lengthMod) projectIndex = 0;
     if (projectIndex > 0) {
         const j = 3 * projectIndex;
         for (let i = 0; i < 3; i++) {
-            projects[j - i - 1].classList.add("hidden");
+            projects[j - i - 1]?.classList.add("hidden");
             projects[j + i]?.classList.remove("hidden");
         }
     } else {
