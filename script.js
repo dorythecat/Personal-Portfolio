@@ -1,23 +1,5 @@
 const projects = document.getElementById("projects").children;
 
-// Cookie utilities
-function getCookie(name) {
-    const parts = `; ${document.cookie}`.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return "";
-}
-
-function setCookie(name, value, expiry = null) {
-    let expires = "";
-    if (expiry) {
-        let date = new Date();
-        date.setTime(date.getTime() + expiry);
-        expires = "; expires=" + date.toUTCString();
-    } document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-function delCookie(name) { document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'; }
-
 // GitHub API
 const API_URL = "https://api.github.com/user/45130233"
 
@@ -26,9 +8,6 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = function() {
     if (request.readyState !== 4 || request.status !== 200) return;
     const response = JSON.parse(request.responseText);
-    setCookie("name", response["login"], 3600);
-    setCookie("html_url", response["html_url"], 3600);
-    setCookie("avatar_url", response["avatar_url"], 3600);
 
     // Select repositories to showcase
     const repoRequest = new XMLHttpRequest();
