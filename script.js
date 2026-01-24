@@ -8,6 +8,7 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = () => {
     if (request.readyState !== 4 || request.status !== 200) return;
     const response = JSON.parse(request.responseText);
+    document.getElementById("profilePic").src = response["avatar_url"];
     document.getElementById("projectsTitle").href = response["html_url"];
 
     // Select repositories to showcase
