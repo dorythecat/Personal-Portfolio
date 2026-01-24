@@ -4,11 +4,13 @@
     color: #ddd; !important
 }
 
-body {
+body,
+ul {
     margin: 0;
     padding: 0;
     text-align: center;
     background: #000;
+    list-style: none;
 }
 
 #profilePic {
@@ -50,7 +52,7 @@ body {
 }
 
 #projects div:hover {
-transform: scale(1.05);
+    transform: scale(1.05);
     z-index: 2;
 }
 
@@ -61,14 +63,6 @@ transform: scale(1.05);
 
 #projects div p {
     font-size: 3vh;
-}
-
-ul {
-    text-align: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
 @media screen and (max-height: 600px) {

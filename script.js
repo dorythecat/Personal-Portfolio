@@ -17,7 +17,7 @@ request.onreadystatechange = () => {
     document.getElementById("repoCount").innerHTML = `Public repos: ${response["public_repos"]}`;
     document.getElementById("followerCount").innerHTML = `Followers: ${response["followers"]}`;
     document.getElementById("codingSince").innerHTML =
-        `Coding since: ${new Date(response["created_at"]).getFullYear()}`;
+        `Coding since ${new Date(response["created_at"]).getFullYear()}`;
 
     // Select repositories to showcase
     const repoRequest = new XMLHttpRequest();
@@ -27,8 +27,7 @@ request.onreadystatechange = () => {
         let j = 0;
         for (let i = 0; i < response.length; i++) {
             const repo = response[i];
-            const score = Number(repo["stargazers_count"]) + Number(repo["watchers_count"]);
-            if (score < 1 || repo["fork"]) continue;
+            if (Number(repo["stargazers_count"]) + Number(repo["watchers_count"]) < 1 || repo["fork"]) continue;
             document.getElementById("projects").innerHTML += `
                  <div class="${j++ > 2 ? "hidden" : ""}">
                      <h3><a href="${repo["html_url"]}">${repo["name"]}</a></h3>
@@ -44,6 +43,7 @@ request.open("GET", API_URL, true);
 request.send(null);
 
 const lengthMod = Math.floor(projects.length / 3);
+const c1 = 3 * lengthMod + 2;
 let projectIndex = 0;
 function nextProjects() {
     if (projects.length < 4) return;
@@ -55,9 +55,8 @@ function nextProjects() {
             projects[j + i]?.classList.remove("hidden");
         }
     } else {
-        const j = 3 * lengthMod + 2;
         for (let i = 0; i < 3; i++) {
-            projects[j - i]?.classList.add("hidden");
+            projects[c1 - i]?.classList.add("hidden");
             projects[i].classList.remove("hidden");
         }
     } setTimeout(nextProjects, 10000);
