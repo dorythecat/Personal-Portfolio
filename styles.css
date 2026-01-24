@@ -17,6 +17,8 @@ body {
 }
 
 #projects {
+    position: relative;
+    height: 50vh;
     justify-content: center;
     overflow: hidden;
 }
@@ -55,4 +57,22 @@ transform: scale(1.05);
 #projects div.hidden {
     visibility: hidden;
     opacity: 0;
+}
+
+#projects div p {
+    font-size: 3vh;
+}
+
+ul {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+@media screen and (max-height: 600px) {
+    #projects div p {
+        font-size: 1.5vh;
+    }
 }

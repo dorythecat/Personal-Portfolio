@@ -8,8 +8,16 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = () => {
     if (request.readyState !== 4 || request.status !== 200) return;
     const response = JSON.parse(request.responseText);
+    document.getElementById("pageTitle").innerHTML = `${response["name"]}'s portfolio`;
     document.getElementById("profilePic").src = response["avatar_url"];
-    document.getElementById("projectsTitle").href = response["html_url"];
+    document.getElementById("title").innerHTML =
+        `<a href=${response["html_url"]}>${response["name"]}</a>'s portfolio`;
+    document.getElementById("bio").innerHTML = response["bio"];
+
+    document.getElementById("repoCount").innerHTML = `Public repos: ${response["public_repos"]}`;
+    document.getElementById("followerCount").innerHTML = `Followers: ${response["followers"]}`;
+    document.getElementById("codingSince").innerHTML =
+        `Coding since: ${new Date(response["created_at"]).getFullYear()}`;
 
     // Select repositories to showcase
     const repoRequest = new XMLHttpRequest();
