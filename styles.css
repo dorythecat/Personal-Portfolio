@@ -65,8 +65,33 @@ ul {
     font-size: 3vh;
 }
 
+#noPhoneSupport {
+    visibility: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 200%;
+    background: #333;
+    z-index: 1000;
+}
+
+#noPhoneSupport h1 {
+    font-size: 4vh;
+    margin: 50vh 0;
+    padding: 0;
+    text-align: center;
+    color: red;
+}
+
 @media screen and (max-height: 600px) {
     #projects div p {
         font-size: 1.5vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #noPhoneSupport {
+        visibility: visible;
     }
 }
